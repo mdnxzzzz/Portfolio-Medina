@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medina | Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="particles"></div>
+    <div class="cursor-glow"></div>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">Medina<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#about">Servicios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><button id="fullscreen-btn" title="Pantalla Completa"><i data-lucide="maximize"></i></button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="badge fade-in">15 Años & Linux Lover</div>
+                <h1 class="fade-in">Hola, soy <span class="accent">Medina</span></h1>
+                <p class="fade-in">Estudiante apasionado por <span id="typing"></span><span class="cursor">|</span></p>
+                <div class="hero-btns fade-in">
+                    <a href="#projects" class="btn primary">Ver Proyectos</a>
+                    <a href="https://github.com/mdnxzzzz" target="_blank" class="btn secondary">GitHub</a>
+                </div>
+            </div>
+            <div class="hero-visual fade-in">
+                <div class="visual-blob"></div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="section-title">
+                <h2>Mis Proyectos</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="project-grid">
+                <!-- Project 1: InfinityX -->
+                <div class="project-card fade-up">
+                    <div class="card-img">
+                        <a href="https://projectinfinity-x.com/" target="_blank" title="Project Infinity X">
+                            <img src="assets/img/infinityx.png" alt="InfinityX ROM">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h3>InfinityX ROM</h3>
+                        <p>ROM personalizada basada en Android 15 para el Redmi Note 14. Diseño limpio y rendimiento
+                            optimizado.</p>
+                        <div class="card-footer">
+                            <a href="https://t.me/medinazxxx/25" target="_blank" class="project-link">Visualización <i
+                                    data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: TWRP -->
+                <div class="project-card fade-up">
+                    <div class="card-img">
+                        <a href="https://twrp.me/about/" target="_blank" title="¿Qué es TWRP?">
+                            <img src="assets/img/twrp.png" alt="TWRP Recovery">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h3>TWRP Recovery</h3>
+                        <p>Recovery personalizado para Redmi Note 14. (Nota: Touch no funcional actualmente, en
+                            desarrollo).</p>
+                        <div class="card-footer">
+                            <a href="https://t.me/medinazxxx" target="_blank" class="project-link">Grupo TG <i
+                                    data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Linux Optimizer & VPN -->
+                <div class="project-card fade-up">
+                    <div class="card-img split">
+                        <a href="https://es.wikipedia.org/wiki/Optimizaci%C3%B3n_de_software" target="_blank"
+                            title="¿Qué es la optimización?">
+                            <img src="assets/img/optimizer.png" alt="Linux Optimizer">
+                        </a>
+                        <a href="https://es.wikipedia.org/wiki/Red_privada_virtual" target="_blank"
+                            title="¿Qué es una VPN?">
+                            <img src="assets/img/vpn.png" alt="Medina VPN">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h3>Optimizer & VPN</h3>
+                        <p>Herramientas de optimización de sistema y túneles seguros para navegación privada.</p>
+                        <div class="card-footer">
+                            <a href="https://github.com/mdnxzzzz" target="_blank" class="project-link">Repositorios <i
+                                    data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Security Tools -->
+                <div class="project-card fade-up">
+                    <div class="card-img split">
+                        <a href="https://es.wikipedia.org/wiki/Esc%C3%A1ner_de_vulnerabilidades" target="_blank"
+                            title="¿Qué es un Escáner de Vulnerabilidades?">
+                            <img src="assets/img/bastion.png" alt="Bastion Icon">
+                        </a>
+                        <a href="https://es.wikipedia.org/wiki/Monitorizaci%C3%B3n_de_red" target="_blank"
+                            title="¿Qué es la Monitorización de Red?">
+                            <img src="assets/img/centinel.png" alt="Centinel Icon">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h3>Security Lab</h3>
+                        <p>Desarrollo de herramientas avanzadas para detección de vulnerabilidades y monitoreo
+                            constante.</p>
+                        <ul class="repo-list">
+                            <li><a href="https://github.com/mdnxzzzz/Bastion-Scan-vulnerability" target="_blank">Bastion
+                                    v2 🛡️</a></li>
+                            <li><a href="https://github.com/mdnxzzzz/Centinel" target="_blank">Centinel 🛡️</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 5: Mr Tomato Boy -->
+                <div class="project-card fade-up">
+                    <div class="card-img">
+                        <a href="https://www.google.com/search?q=que+es+un+bot+de+telegram" target="_blank"
+                            title="¿Qué es un bot de Telegram?">
+                            <img src="assets/img/mr_tomato.png" alt="Mr Tomato Bot">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h3>Mr Tomato Bot</h3>
+                        <p>Bot de administración para grupos de Telegram potente y versátil.</p>
+                        <div class="card-footer">
+                            <a href="https://t.me/Mr_Tomato_bot" target="_blank" class="project-link">Usar Bot <i
+                                    data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="distros" class="distros">
+            <div class="section-title">
+                <h2>Mi Top Distros Linux</h2>
+                <div class="underline"></div>
+                <p>(Y quiero probar FreeBSD pronto)</p>
+            </div>
+            <div class="distro-grid fade-up">
+                <div class="distro-item">
+                    <img src="assets/img/gentoo.png" alt="Gentoo">
+                    <div class="distro-info">
+                        <h3>1. <a href="https://www.gentoo.org/" target="_blank">Gentoo</a></h3>
+                        <p>Compilación absoluta y control total.</p>
+                    </div>
+                </div>
+                <div class="distro-item">
+                    <div class="distro-img-placeholder arch">A</div>
+                    <div class="distro-info">
+                        <h3>2. <a href="https://archlinux.org/" target="_blank">Arch Linux</a></h3>
+                        <p>Simplicidad y vanguardia (The Arch Way).</p>
+                    </div>
+                </div>
+                <div class="distro-item">
+                    <div class="distro-img-placeholder fedora">f</div>
+                    <div class="distro-info">
+                        <h3>3. <a href="https://getfedora.org/" target="_blank">Fedora</a></h3>
+                        <p>Innovación y software libre de vanguardia.</p>
+                    </div>
+                </div>
+                <div class="distro-item">
+                    <div class="distro-img-placeholder debian">@</div>
+                    <div class="distro-info">
+                        <h3>4. <a href="https://www.debian.org/" target="_blank">Debian</a></h3>
+                        <p>El sistema operativo universal (Estabilidad).</p>
+                    </div>
+                </div>
+                <div class="distro-item">
+                    <div class="distro-img-placeholder ubuntu">U</div>
+                    <div class="distro-info">
+                        <h3>5. <a href="https://ubuntu.com/" target="_blank">Ubuntu</a></h3>
+                        <p>Linux para seres humanos y compatibilidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="courses">
+            <div class="section-title">
+                <h2>Cursos & Asesoramiento</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="courses-grid fade-up">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="assets/img/tux_courses.png" alt="Linux Penguin">
+                    </div>
+                    <div class="course-info">
+                        <h3>Guías de Comandos</h3>
+                        <p>Domina desde lo más básico hasta lo más avanzado en la terminal de Linux.</p>
+                        <div class="course-btns">
+                            <a href="https://www.fing.edu.uy/inco/cursos/sistoper/recursosLaboratorio/tutorial0.pdf"
+                                target="_blank" class="btn primary">Básicos</a>
+                            <a href="https://docs.rockylinux.org/10/es/books/admin_guide/04-advanced-commands/"
+                                target="_blank" class="btn primary">Avanzados</a>
+                        </div>
+                        <p class="course-contact">Más información: <span>@mdnxzzzz</span></p>
+                    </div>
+                </div>
+
+                <div class="course-card premium">
+                    <div class="course-image">
+                        <img src="assets/img/advice_premium.png" alt="Asesoramiento Premium">
+                    </div>
+                    <div class="course-info">
+                        <h3>Asesoramiento Privado</h3>
+                        <p>Resolución de dudas específicas, ayuda con instalaciones o soporte técnico personalizado.</p>
+                        <div class="price-tag">2€ <span>/ consulta</span></div>
+                        <a href="https://t.me/mdnxzzzz" target="_blank" class="btn primary">Solicitar Ayuda</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="section-title">
+                <h2>Sobre Mí & Servicios</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-container fade-up">
+                <div class="about-content">
+                    <div class="about-info-box">
+                        <p>Formo parte de grupos famosos sobre tecnología y me dedico a ayudar a la gente en todo
+                            momento. Mi pasión es dar vida y optimizar dispositivos. Arreglo todo tipo de dispositivos:
+                            desde celulares hasta PCs.</p>
+                        <blockquote class="about-quote">
+                            "Soy muy amigable así que no tendrás problema jaja, pero recuerda respetar"
+                        </blockquote>
+                    </div>
+
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <i data-lucide="smartphone"></i>
+                            <h3>Reparación Móvil</h3>
+                            <p>Especialista en software y hardware para:</p>
+                            <div class="brand-links">
+                                <a href="https://www.mi.com/" target="_blank">Xiaomi</a>,
+                                <a href="https://www.samsung.com/" target="_blank">Samsung</a>,
+                                <a href="https://www.apple.com/iphone/" target="_blank">iPhone</a>,
+                                <a href="https://www.motorola.com/" target="_blank">Motorola</a>,
+                                <a href="https://www.po.co/" target="_blank">Poco</a> y
+                                <a href="https://www.tecno-mobile.com/" target="_blank">Tecno</a>.
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <i data-lucide="monitor"></i>
+                            <h3>Soporte PC</h3>
+                            <p>Optimización de sistemas, limpieza y mantenimiento general de ordenadores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Surprise Section -->
+        <section class="surprise-section">
+            <button id="surprise-btn" class="btn primary">¡Sorpresa!</button>
+        </section>
+
+        <!-- Simulated Terminal -->
+        <div id="terminal-container" class="terminal-container hidden">
+            <div class="terminal-header">
+                <div class="terminal-btns">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="terminal-title">C:\Windows\system32\cmd.exe</div>
+            </div>
+            <div id="terminal-body" class="terminal-body">
+                <div class="terminal-line"><span class="prompt">C:\Users\Medina></span> <span
+                        id="terminal-text"></span><span class="cursor">_</span></div>
+            </div>
+        </div>
+
+        <section id="contact" class="contact">
+            <div class="contact-container fade-up">
+                <h2>¿Hablamos?</h2>
+                <p>Si quieres contactarme o ver más de mi trabajo, aquí tienes mis enlaces.</p>
+                <div class="contact-links">
+                    <a href="https://t.me/mdnxzzzz" target="_blank" class="contact-item">
+                        <i data-lucide="send"></i>
+                        <span>@mdnxzzzz</span>
+                    </a>
+                    <a href="https://github.com/mdnxzzzz" target="_blank" class="contact-item">
+                        <i data-lucide="github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Medina. Hecho con pasión por la informática.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
