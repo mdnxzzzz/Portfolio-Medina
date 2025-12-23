@@ -13,6 +13,33 @@
 </head>
 
 <body>
+    <div id="preloader" class="preloader">
+        <div class="loader-content">
+            <div id="loader-spinner" class="loader-circle"></div>
+            <h2 id="gateway-question" class="loader-text">¿Entrar a la página?</h2>
+            <div id="gateway-actions" class="gateway-actions hidden">
+                <div class="gateway-btns">
+                    <button id="btn-yes" class="btn primary">Sí</button>
+                    <button id="btn-no" class="btn secondary">No</button>
+                </div>
+                <p class="gateway-contact">O puedes <a href="https://t.me/mdnxzzzz" target="_blank">Contactar con
+                        Medina</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Overlay -->
+    <div id="login-overlay" class="login-overlay hidden">
+        <div class="login-card">
+            <h2>Bienvenido</h2>
+            <p>Introduce tu nombre para personalizar tu experiencia</p>
+            <div class="input-group">
+                <input type="text" id="user-name-input" placeholder="Tu nombre..." maxlength="20">
+                <button id="login-submit" class="btn primary">Entrar</button>
+            </div>
+        </div>
+    </div>
+
     <div class="particles"></div>
     <div class="cursor-glow"></div>
 
@@ -23,7 +50,10 @@
                 <li><a href="#projects">Proyectos</a></li>
                 <li><a href="#about">Servicios</a></li>
                 <li><a href="#contact">Contacto</a></li>
-                <li><button id="fullscreen-btn" title="Pantalla Completa"><i data-lucide="maximize"></i></button></li>
+                <li><button id="reset-name-btn" title="Cambiar Nombre" class="nav-icon-btn"><i
+                            data-lucide="user-cog"></i></button></li>
+                <li><button id="fullscreen-btn" title="Pantalla Completa" class="nav-icon-btn"><i
+                            data-lucide="maximize"></i></button></li>
             </ul>
         </div>
     </nav>
@@ -32,7 +62,7 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <div class="badge fade-in">15 Años & Linux Lover</div>
-                <h1 class="fade-in">Hola, soy <span class="accent">Medina</span></h1>
+                <h1 class="fade-in">Hola <span class="accent dynamic-name">Invitado</span>, soy Medina</h1>
                 <p class="fade-in">Estudiante apasionado por <span id="typing"></span><span class="cursor">|</span></p>
                 <div class="hero-btns fade-in">
                     <a href="#projects" class="btn primary">Ver Proyectos</a>
@@ -311,6 +341,10 @@
     </main>
 
     <footer>
+        <div class="visit-stats">
+            <div class="stat-item">Visitas Mensuales: <span id="monthly-visits">...</span></div>
+            <div class="stat-item">Visitas Totales: <span id="total-visits">...</span></div>
+        </div>
         <p>&copy; 2025 Medina. Hecho con pasión por la informática.</p>
     </footer>
 

@@ -1,5 +1,95 @@
 const cursor = document.querySelector('.cursor-glow');
 const particlesContainer = document.querySelector('.particles');
+const preloader = document.getElementById('preloader');
+const loaderText = document.querySelector('.loader-text');
+const loginOverlay = document.getElementById('login-overlay');
+const nameInput = document.getElementById('user-name-input');
+const loginSubmit = document.getElementById('login-submit');
+
+// Personalization Logic
+function updateDynamicNames(name) {
+    document.querySelectorAll('.dynamic-name').forEach(el => {
+        el.textContent = name;
+    });
+}
+
+const gatewayActions = document.getElementById('gateway-actions');
+const btnYes = document.getElementById('btn-yes');
+const btnNo = document.getElementById('btn-no');
+const loaderSpinner = document.getElementById('loader-spinner');
+
+function handleLogin() {
+    // Show gateway actions after short delay to ensure assets are ready
+    setTimeout(() => {
+        loaderSpinner.classList.add('hidden');
+        gatewayActions.classList.remove('hidden');
+    }, 2000);
+}
+
+btnYes.addEventListener('click', () => {
+    // 1. Enter Fullscreen
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.log("Fullscreen blocked:", err);
+        });
+    }
+
+    // 2. Hide Gateway, Show Login
+    gatewayActions.classList.add('hidden');
+    const question = document.getElementById('gateway-question');
+    question.textContent = "IDENTIFICACIÓN REQUERIDA";
+    setTimeout(() => {
+        preloader.classList.add('fade-out');
+        loginOverlay.classList.remove('hidden');
+    }, 1000);
+});
+
+btnNo.addEventListener('click', () => {
+    const question = document.getElementById('gateway-question');
+    question.textContent = "VALE, ¡VUELVE CUANDO QUIERAS! 🐧";
+    gatewayActions.classList.add('hidden');
+});
+
+loginSubmit.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    const nameLower = name.toLowerCase();
+    const forbiddenWords = ['mierda', 'puta', 'polla', 'coño', 'cabron', 'maricon', 'gilipollas', 'joder', 'sexo', 'porno', 'pene', 'vagina', 'fuck', 'shit', 'nude', '18+', 'puss', 'dick'];
+
+    const hasForbidden = forbiddenWords.some(word => nameLower.includes(word));
+
+    if (hasForbidden) {
+        nameInput.style.borderColor = "#ff5f56";
+        nameInput.value = "";
+        nameInput.placeholder = "Nombre no permitido ❌";
+        return;
+    }
+
+    if (name) {
+        localStorage.setItem('medina_user_name', name);
+        updateDynamicNames(name);
+
+        // Trigger Fullscreen
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(err => {
+                console.log("Fullscreen blocked:", err);
+            });
+        }
+
+        // Hide login
+        loginOverlay.classList.add('hidden');
+
+        // If preloader is visible, show welcome and fade out
+        if (!preloader.classList.contains('fade-out')) {
+            loaderText.textContent = `¡Bienvenido ${name}!`;
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+            }, 1500);
+        }
+    }
+});
+
+// Preloader handling
+window.addEventListener('load', handleLogin);
 
 function createParticles() {
     for (let i = 0; i < 15; i++) {
@@ -106,7 +196,7 @@ surpriseBtn.addEventListener('click', () => {
         { type: 'line', content: "CRITICAL SYSTEM FAILURE - 0x0001FF", class: 'danger', pause: 1000 },
         { type: 'alert', content: 'red-alert' },
         { type: 'line', content: "----------------------------------------", class: 'highlight' },
-        { type: 'line', content: "¡MEDINA HA DETENIDO LA OPERACIÓN!", class: 'success', pause: 1000 },
+        { type: 'line', content: `¡${localStorage.getItem('medina_user_name') || 'MEDINA'} HA DETENIDO LA OPERACIÓN!`, class: 'success', pause: 1000 },
         { type: 'effect', action: 'restore' },
         { type: 'line', content: "Sistema restaurado con éxito. ✅", class: 'success', pause: 500 },
         { type: 'line', content: "(Recuerda que estás en buenas manos aquí 😉)", class: 'highlight', pause: 2000 },
@@ -243,3 +333,34 @@ window.addEventListener('scroll', () => {
         nav.style.padding = "1.5rem 5%";
     }
 });
+
+// Reset Name Logic
+const resetNameBtn = document.getElementById('reset-name-btn');
+resetNameBtn.addEventListener('click', () => {
+    nameInput.placeholder = "Tu nombre...";
+    nameInput.style.borderColor = "";
+    loginOverlay.classList.remove('hidden');
+});
+
+// Visitor Counter Logic
+async function fetchVisits() {
+    try {
+        const now = new Date();
+        const monthKey = `medina_portfolio_${now.getFullYear()}_${now.getMonth() + 1}`;
+        const totalKey = `medina_portfolio_total_v2`;
+
+        const totalResp = await fetch(`https://api.counterapi.dev/v1/mdnxzzzz/${totalKey}/up`);
+        const totalData = await totalResp.json();
+        document.getElementById('total-visits').textContent = totalData.count;
+
+        const monthlyResp = await fetch(`https://api.counterapi.dev/v1/mdnxzzzz/${monthKey}/up`);
+        const monthlyData = await monthlyResp.json();
+        document.getElementById('monthly-visits').textContent = monthlyData.count;
+    } catch (error) {
+        console.error('Error fetching visit stats:', error);
+        document.getElementById('total-visits').textContent = "ERROR";
+        document.getElementById('monthly-visits').textContent = "ERROR";
+    }
+}
+
+fetchVisits();
