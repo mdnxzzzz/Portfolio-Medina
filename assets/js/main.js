@@ -1,94 +1,13 @@
 const cursor = document.querySelector('.cursor-glow');
 const particlesContainer = document.querySelector('.particles');
 const preloader = document.getElementById('preloader');
-const loaderText = document.querySelector('.loader-text');
-const loginOverlay = document.getElementById('login-overlay');
-const nameInput = document.getElementById('user-name-input');
-const loginSubmit = document.getElementById('login-submit');
-
-// Personalization Logic
-function updateDynamicNames(name) {
-    document.querySelectorAll('.dynamic-name').forEach(el => {
-        el.textContent = name;
-    });
-}
-
-const gatewayActions = document.getElementById('gateway-actions');
-const btnYes = document.getElementById('btn-yes');
-const btnNo = document.getElementById('btn-no');
-const loaderSpinner = document.getElementById('loader-spinner');
-
-function handleLogin() {
-    // Show gateway actions after short delay to ensure assets are ready
-    setTimeout(() => {
-        loaderSpinner.classList.add('hidden');
-        gatewayActions.classList.remove('hidden');
-    }, 2000);
-}
-
-btnYes.addEventListener('click', () => {
-    // 1. Enter Fullscreen
-    if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(err => {
-            console.log("Fullscreen blocked:", err);
-        });
-    }
-
-    // 2. Hide Gateway, Show Login
-    gatewayActions.classList.add('hidden');
-    const question = document.getElementById('gateway-question');
-    question.textContent = "IDENTIFICACIÓN REQUERIDA";
-    setTimeout(() => {
-        preloader.classList.add('fade-out');
-        loginOverlay.classList.remove('hidden');
-    }, 1000);
-});
-
-btnNo.addEventListener('click', () => {
-    const question = document.getElementById('gateway-question');
-    question.textContent = "VALE, ¡VUELVE CUANDO QUIERAS! 🐧";
-    gatewayActions.classList.add('hidden');
-});
-
-loginSubmit.addEventListener('click', () => {
-    const name = nameInput.value.trim();
-    const nameLower = name.toLowerCase();
-    const forbiddenWords = ['mierda', 'puta', 'polla', 'coño', 'cabron', 'maricon', 'gilipollas', 'joder', 'sexo', 'porno', 'pene', 'vagina', 'fuck', 'shit', 'nude', '18+', 'puss', 'dick'];
-
-    const hasForbidden = forbiddenWords.some(word => nameLower.includes(word));
-
-    if (hasForbidden) {
-        nameInput.style.borderColor = "#ff5f56";
-        nameInput.value = "";
-        nameInput.placeholder = "Nombre no permitido ❌";
-        return;
-    }
-
-    if (name) {
-        localStorage.setItem('medina_user_name', name);
-        updateDynamicNames(name);
-
-        // Trigger Fullscreen
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(err => {
-                console.log("Fullscreen blocked:", err);
-            });
-        }
-
-        // Hide login
-        loginOverlay.classList.add('hidden');
-
-        // If preloader is visible, show welcome and fade out
-        if (!preloader.classList.contains('fade-out')) {
-            loaderText.textContent = `¡Bienvenido ${name}!`;
-            setTimeout(() => {
-                preloader.classList.add('fade-out');
-            }, 1500);
-        }
-    }
-});
 
 // Preloader handling
+function handleLogin() {
+    setTimeout(() => {
+        preloader.classList.add('fade-out');
+    }, 2000);
+}
 window.addEventListener('load', handleLogin);
 
 function createParticles() {
@@ -174,7 +93,6 @@ document.querySelectorAll('.project-card').forEach(card => {
 const surpriseBtn = document.getElementById('surprise-btn');
 const terminalContainer = document.getElementById('terminal-container');
 const terminalText = document.getElementById('terminal-text');
-const message = " echo 'os quiero a todos ❤️'";
 
 surpriseBtn.addEventListener('click', () => {
     terminalContainer.classList.remove('hidden');
@@ -196,11 +114,11 @@ surpriseBtn.addEventListener('click', () => {
         { type: 'line', content: "CRITICAL SYSTEM FAILURE - 0x0001FF", class: 'danger', pause: 1000 },
         { type: 'alert', content: 'red-alert' },
         { type: 'line', content: "----------------------------------------", class: 'highlight' },
-        { type: 'line', content: `¡${localStorage.getItem('medina_user_name') || 'MEDINA'} HA DETENIDO LA OPERACIÓN!`, class: 'success', pause: 1000 },
+        { type: 'line', content: "MEDINA HA DETENIDO LA OPERACIÓN!", class: 'success', pause: 1000 },
         { type: 'effect', action: 'restore' },
         { type: 'line', content: "Sistema restaurado con éxito. ✅", class: 'success', pause: 500 },
         { type: 'line', content: "(Recuerda que estás en buenas manos aquí 😉)", class: 'highlight', pause: 2000 },
-        { type: 'effect', action: 'final' }
+        { type: 'effect', action: 'close' }
     ];
 
     let step = 0;
@@ -255,13 +173,8 @@ surpriseBtn.addEventListener('click', () => {
                     s.style.opacity = "";
                 });
                 terminalContainer.classList.remove('red-alert');
-            } else if (current.action === 'final') {
-                const overlay = document.getElementById('final-overlay');
-                overlay.classList.remove('hidden');
-                setTimeout(() => {
-                    overlay.classList.add('hidden');
-                    terminalContainer.classList.add('hidden');
-                }, 4000);
+            } else if (current.action === 'close') {
+                terminalContainer.classList.add('hidden');
             }
             step++;
             runSequence();
@@ -332,13 +245,24 @@ window.addEventListener('scroll', () => {
         nav.style.boxShadow = "none";
         nav.style.padding = "1.5rem 5%";
     }
+});// Magnetic Buttons
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+    });
 });
 
-// Reset Name Logic
-const resetNameBtn = document.getElementById('reset-name-btn');
-resetNameBtn.addEventListener('click', () => {
-    nameInput.placeholder = "Tu nombre...";
-    nameInput.style.borderColor = "";
-    loginOverlay.classList.remove('hidden');
+// Parallax for Hero Visual
+window.addEventListener('scroll', () => {
+    const visual = document.querySelector('.visual-blob');
+    const scroll = window.scrollY;
+    if (visual) {
+        visual.style.transform = `translateY(${scroll * 0.2}px)`;
+    }
 });
-

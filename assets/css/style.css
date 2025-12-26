@@ -1,12 +1,14 @@
 :root {
-    --bg-color: #f0f7ff;
-    --text-color: #0f172a;
+    --bg-color: #050b1a;
+    --text-color: #f8fafc;
     --accent-color: #3b82f6;
     --accent-dark: #1d4ed8;
-    --accent-light: rgba(59, 130, 246, 0.1);
-    --white: #ffffff;
-    --shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-    --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    --accent-light: rgba(59, 130, 246, 0.15);
+    --white: #0f172a;
+    --glass: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Custom Scrollbar */
@@ -82,39 +84,6 @@
     font-weight: 700;
     color: var(--accent-color);
     letter-spacing: 1px;
-    margin-bottom: 2rem;
-}
-
-.gateway-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.gateway-btns {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.gateway-btns .btn {
-    min-width: 100px;
-    padding: 0.8rem 2rem;
-}
-
-.gateway-contact {
-    font-size: 0.9rem;
-    color: #64748b;
-}
-
-.gateway-contact a {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.gateway-contact a:hover {
-    text-decoration: underline;
 }
 
 @keyframes spin {
@@ -132,71 +101,6 @@
     visibility: hidden;
 }
 
-/* Login Overlay */
-.login-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5000;
-    transition: opacity 0.5s ease;
-}
-
-.login-card {
-    background: var(--white);
-    padding: 3rem;
-    border-radius: 30px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-    transform: translateY(0);
-    transition: var(--transition);
-}
-
-.login-card h2 {
-    margin-bottom: 1rem;
-    color: var(--accent-color);
-}
-
-.login-card p {
-    margin-bottom: 2rem;
-    color: #64748b;
-    font-size: 0.9rem;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.input-group input {
-    padding: 1rem 1.5rem;
-    border-radius: 15px;
-    border: 2px solid var(--accent-light);
-    font-family: inherit;
-    font-size: 1rem;
-    outline: none;
-    transition: var(--transition);
-}
-
-.input-group input:focus {
-    border-color: var(--accent-color);
-}
-
-.login-overlay.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -209,6 +113,7 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 /* Animations */
@@ -346,11 +251,13 @@ body {
     top: 0;
     width: 100%;
     padding: 1.5rem 5%;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(5, 11, 26, 0.8);
+    backdrop-filter: blur(15px);
     display: flex;
     justify-content: center;
     z-index: 1000;
+    border-bottom: 1px solid var(--glass-border);
+    transition: var(--transition);
 }
 
 .nav-content {
@@ -519,13 +426,13 @@ body {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
+    background: var(--glass);
+    backdrop-filter: blur(12px);
     border-radius: 24px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: transform 0.1s ease-out, box-shadow 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: var(--transition);
+    border: 1px solid var(--glass-border);
     perspective: 1000px;
 }
 
@@ -609,12 +516,13 @@ body {
 }
 
 .distro-item {
-    background: var(--white);
+    background: var(--glass);
     padding: 1.5rem;
     border-radius: 20px;
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    border: 1px solid var(--glass-border);
 }
 
 .distro-item:hover {
@@ -693,10 +601,10 @@ body {
 }
 
 .course-card {
-    background: var(--bg-color);
+    background: var(--glass);
     padding: 3rem;
     border-radius: 30px;
-    border: 1px solid var(--accent-light);
+    border: 1px solid var(--glass-border);
     transition: var(--transition);
     display: flex;
     flex-direction: column;

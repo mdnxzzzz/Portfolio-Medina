@@ -16,29 +16,10 @@
     <div id="preloader" class="preloader">
         <div class="loader-content">
             <div id="loader-spinner" class="loader-circle"></div>
-            <h2 id="gateway-question" class="loader-text">¿Entrar a la página?</h2>
-            <div id="gateway-actions" class="gateway-actions hidden">
-                <div class="gateway-btns">
-                    <button id="btn-yes" class="btn primary">Sí</button>
-                    <button id="btn-no" class="btn secondary">No</button>
-                </div>
-                <p class="gateway-contact">O puedes <a href="https://t.me/mdnxzzzz" target="_blank">Contactar con
-                        Medina</a></p>
-            </div>
+            <h2 id="loader-text" class="loader-text">Cargando...</h2>
         </div>
     </div>
 
-    <!-- Login Overlay -->
-    <div id="login-overlay" class="login-overlay hidden">
-        <div class="login-card">
-            <h2>Bienvenido</h2>
-            <p>Introduce tu nombre para personalizar tu experiencia</p>
-            <div class="input-group">
-                <input type="text" id="user-name-input" placeholder="Tu nombre..." maxlength="20">
-                <button id="login-submit" class="btn primary">Entrar</button>
-            </div>
-        </div>
-    </div>
 
     <div class="particles"></div>
     <div class="cursor-glow"></div>
@@ -50,8 +31,6 @@
                 <li><a href="#projects">Proyectos</a></li>
                 <li><a href="#about">Servicios</a></li>
                 <li><a href="#contact">Contacto</a></li>
-                <li><button id="reset-name-btn" title="Cambiar Nombre" class="nav-icon-btn"><i
-                            data-lucide="user-cog"></i></button></li>
                 <li><button id="fullscreen-btn" title="Pantalla Completa" class="nav-icon-btn"><i
                             data-lucide="maximize"></i></button></li>
             </ul>
@@ -62,7 +41,7 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <div class="badge fade-in">15 Años & Linux Lover</div>
-                <h1 class="fade-in">Hola <span class="accent dynamic-name">Invitado</span>, soy Medina</h1>
+                <h1 class="fade-in">Hola, soy Medina</h1>
                 <p class="fade-in">Estudiante apasionado por <span id="typing"></span><span class="cursor">|</span></p>
                 <div class="hero-btns fade-in">
                     <a href="#projects" class="btn primary">Ver Proyectos</a>
@@ -176,6 +155,27 @@
                         <div class="card-footer">
                             <a href="https://t.me/Mr_Tomato_bot" target="_blank" class="project-link">Usar Bot <i
                                     data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Espia Americano -->
+                <div class="project-card fade-up">
+                    <div class="card-img">
+                        <a href="https://www.google.com/search?q=que+es+un+rat+informatico" target="_blank"
+                            title="¿Qué es un RAT?">
+                            <img src="assets/img/espia_americano.png" alt="Espia Americano RAT">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h3>Espia Americano</h3>
+                        <p>RAT (Remote Administration Tool) avanzado para Telegram. Control y monitoreo remoto.</p>
+                        <div class="card-footer" style="flex-direction: column; gap: 0.8rem;">
+                            <a href="https://t.me/Espia_Americano_bot" target="_blank" class="project-link">Web
+                                @Espia_Americano_bot <i data-lucide="external-link"></i></a>
+                            <a href="https://www.google.com/search?q=que+es+un+rat+informatico" target="_blank"
+                                class="project-link" style="color: #64748b; font-size: 0.85rem;">¿Qué es un RAT? <i
+                                    data-lucide="help-circle"></i></a>
                         </div>
                     </div>
                 </div>
@@ -304,9 +304,6 @@
             </div>
         </section>
 
-        <section class="surprise-section">
-            <button id="surprise-btn" class="btn primary">Click Me</button>
-        </section>
 
         <!-- Simulated Terminal -->
         <div id="terminal-container" class="terminal-container hidden">
@@ -349,11 +346,6 @@
         </div>
     </footer>
 
-    <div id="final-overlay" class="final-overlay hidden">
-        <div class="final-content">
-            <h1 class="heart-text">os quiero a todos ❤️</h1>
-        </div>
-    </div>
 
     <script src="assets/js/main.js"></script>
     <script>
